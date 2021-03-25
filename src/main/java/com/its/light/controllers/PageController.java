@@ -9,4 +9,9 @@ public class PageController {
     @GetMapping("/")
     public String showMainPage() { return "main"; }
 
+    @GetMapping("/rooms/*")
+    public String showRoom() {
+        return "room";
+    }
+
 }

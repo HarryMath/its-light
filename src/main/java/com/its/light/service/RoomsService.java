@@ -1,7 +1,7 @@
 package com.its.light.service;
 
-import com.its.light.DTO.RoomDTO;
 import com.its.light.models.Room;
+import com.its.light.DTO.RoomDTO;
 import com.its.light.repository.RoomsRepository;
 import com.its.light.tools.CountryDefiner;
 import com.its.light.tools.ResponseCodes;
@@ -44,6 +44,14 @@ public class RoomsService {
     }
 
     public long saveNew(Room room) {
+        try {
+            if( !countryDefiner.isCountryExists(room.getCountry()) ) {
+                return ResponseCodes.COUNTRY_NOT_EXISTS;
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return ResponseCodes.COUNTRY_NOT_EXISTS;
+        }
         room.setLightOn(false);
         return roomsRepository.findByName(room.getName()).isPresent() ?
                 ResponseCodes.NAME_TAKEN :

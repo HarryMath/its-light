@@ -1,13 +1,6 @@
-* {
-    box-sizing: border-box;
-    user-select: none;
-}
-html, body {
-    font-size: 14px;
-    font-weight: 400;
-    font-family: system-ui, serif;
-    background: #2b303b;
-    color: #8c919e;
+body> h1 {
+    width: 100%;
+    text-align: center;
 }
 .rooms-container {
     display: flex;
@@ -28,12 +21,14 @@ html, body {
     border: 1px solid #434956;
     border-top-color: #61687a;
     border-bottom-color: #373c48;
+    overflow: hidden;
 }
 #roomAdder {
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
     color: #8fbcd2;
+    min-height: 80px;
 }
 #roomAdder> div {
     position: absolute;
@@ -93,4 +88,20 @@ html, body {
 .disabled {
     opacity: 0.4;
     color: unset!important;
+}
+
+@media screen and (max-width: 700px)  {
+    .room {
+        width: calc(33.3% - 14px);
+    }
+}
+@media screen and (max-width: 500px)  {
+    .room {
+        width: calc(50% - 14px);
+    }
+}
+@media screen and (max-width: 400px)  {
+    .room {
+        width: calc(100% - 14px);
+    }
 }

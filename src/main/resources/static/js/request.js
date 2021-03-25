@@ -3,6 +3,7 @@ const ResponseCodes = {
 	NO_ACCESS: -1,
 	DATABASE_ERROR: -2,
 	NAME_TAKEN: -3,
+	COUNTRY_NOT_EXISTS: -4
 }
 
 async function request(url, method = 'GET', data = null) {

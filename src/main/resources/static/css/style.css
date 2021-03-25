@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+html, body {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: system-ui, serif;
+    background: #2b303b;
+    color: #8c919e;
+}
+
+.loader-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    background: #0000007d;
+}
+@keyframes loader-anim {
+    0%{ transform: translate(-50%, -50%) rotate(0deg) }
+    100% { transform: translate(-50%, -50%) rotate(359deg) }
+}
+.loader-overlay::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-left-color: transparent;
+    animation: loader-anim 1s linear infinite;
+}

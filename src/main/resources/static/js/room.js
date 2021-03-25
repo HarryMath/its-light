@@ -85,20 +85,4 @@ class Room {
     create() {
         return request('/api/rooms/new', 'POST', this)
     }
-
-    delete() {
-        request('/api/rooms/delete?id=' + this.id)
-            .then(response => {
-                if(response == ResponseCodes.SUCCESS) {
-                    showMessage('room deleted successfully')
-                    try {
-                        document.getElementById('room' + this.id).remove()
-                    } catch (e) {
-                        console.warn(e)
-                    }
-                } else {
-                    showMessage('you can\'t delete this room', -1)
-                }
-            })
-    }
 }

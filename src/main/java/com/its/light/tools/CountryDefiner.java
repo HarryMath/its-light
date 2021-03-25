@@ -15,8 +15,17 @@ public class CountryDefiner {
     public String getCountry(String ipAddress) throws IOException {
         String response = requestTo("https://api.ip2country.info/ip?" + ipAddress);
         return response
-                .split("countryName\":")[1]
-                .split(",")[0];
+                .split("countryName\": \"")[1]
+                .split("\",")[0];
+    }
+
+    public boolean isCountryExists(String country) throws IOException {
+        String response = requestTo("https://restcountries.eu/rest/v2/name/" + country);
+        if (response.startsWith("{") ) return false;
+        String resultCountry = response
+                .split("name\":\"")[1]
+                .split("\",")[0];
+        return resultCountry.equalsIgnoreCase(country);
     }
 
     private String requestTo(String URL) throws IOException {
