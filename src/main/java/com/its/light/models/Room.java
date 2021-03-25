@@ -3,7 +3,6 @@ package com.its.light.models;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
 @Data
@@ -17,6 +16,7 @@ public class Room {
     @Column(unique = true)
     private String name;
     private String country;
-    private Date creationDate;
+    private String creationDate;
+    private String ipOfCreator;
     private boolean lightOn = false;
 }

@@ -1,0 +1,63 @@
+.msg_window {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    opacity: 0;
+    z-index: 100;
+    min-width: calc(70px + 10vw);
+    max-width: calc(200px + 20vw);
+    padding: 13px;
+    max-height: 20vh;
+    font-weight: 500;
+    background-color: #353739;
+    color: #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 14px;
+    transition: 0.35s linear;
+    opacity: 0;
+    transform: translateY(30vh);
+}
+.msg_visible {
+    opacity: 1;
+    transform: none;
+}
+.msg {
+    margin-right: 40px;
+}
+.msg_closer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.msg_closer:hover {
+    background-color: #aaafec2c;
+    opacity: 1;
+}
+
+.msg_indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0%;
+    height: calc(3px + 0.1vw + 0.1vh);
+}
+@keyframes msg_anim {
+  from {width: 100%;}
+  to {width: 0%;}
+}
+
+
+@media screen and (min-width: 600px) {
+    .msg_indicator {
+        height: calc(3px + 0.1vw + 0.1vh);
+    }
+}

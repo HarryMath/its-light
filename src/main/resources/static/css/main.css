@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+html, body {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: system-ui, serif;
+    background: #2b303b;
+    color: #8c919e;
+}
+.rooms-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: calc(1000px + 20vw);
+    width: 100%;
+    padding: 13px;
+}
+.room {
+    display: block;
+    width: calc(25% - 14px);
+    margin: 7px;
+    background: #232830;
+    border-radius: 8px;
+    border: 1px solid #434956;
+    border-top-color: #61687a;
+    border-bottom-color: #373c48;
+}
+#roomAdder {
+    position: relative;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #8fbcd2;
+}
+#roomAdder> div {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.room> div {
+    padding: 7px;
+}
+.room-content> div {
+    width: 100%;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.room-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #e6be6a;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.room-footer {
+    border-top: 1px solid #51515199;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background: #0000001d;
+}
+.room-footer> div {
+    cursor: pointer;
+    max-width: 33.3%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 5px;
+}
+.room-footer> div:hover {
+    color: #eee;
+}
+.room-footer i {
+    padding-left: 3px;
+    font-size: 12px;
+}
+.disabled {
+    opacity: 0.4;
+    color: unset!important;
+}
