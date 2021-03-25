@@ -14,11 +14,12 @@ html, body {
     flex-wrap: wrap;
     flex-direction: row;
     margin: 0 auto;
-    max-width: calc(1000px + 20vw);
+    max-width: calc(900px + 20vw);
     width: 100%;
     padding: 13px;
 }
 .room {
+    position: relative;
     display: block;
     width: calc(25% - 14px);
     margin: 7px;
@@ -29,7 +30,6 @@ html, body {
     border-bottom-color: #373c48;
 }
 #roomAdder {
-    position: relative;
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
@@ -51,13 +51,23 @@ html, body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    padding: 3px;
 }
 .room-name {
     font-size: 18px;
     font-weight: 500;
     color: #e6be6a;
-    padding-bottom: 5px;
+    margin-bottom: 7px;
     text-align: center;
+}
+.room-available .room-name {
+    color: #98bc8d;
+}
+.room-name:focus, .room-country:focus {
+    outline: none!important;
+    background: #0000003d;
+    color: #ccc;
+    border-radius: 3px;
 }
 .room-footer {
     border-top: 1px solid #51515199;

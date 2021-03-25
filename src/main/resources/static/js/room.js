@@ -6,7 +6,14 @@ class Room {
     ipOfCreator
     lightOn
 
-    constructor() {}
+    constructor() {
+        this.id = ""
+        this.name = ""
+        this.country = ""
+        this.creationDate = ""
+        this.ipOfCreator = ""
+        this.lightOn = false
+    }
 
     initWithNameAndCountry(name, country) {
         this.name = name
@@ -32,6 +39,26 @@ class Room {
     }
 
     createHtmlElement() {
+        const element = this.createTemplateElement()
+        const shareButton = element.querySelector('.room-share-button')
+        const joinButton = element.querySelector('.room-join-button')
+        const deleteButton = element.querySelector('.room-delete-button')
+        if(window.userIP === this.ipOfCreator) {
+            deleteButton.setAttribute('onclick', `deleteRoom('${this.id}')`)
+        } else {
+            deleteButton.classList.add('disabled')
+        }
+        if(window.userCountry.toLowerCase() === this.country.toLowerCase()) {
+            joinButton.setAttribute('onclick', `joinRoom('${this.id}')`)
+            element.classList.add('room-available')
+        } else {
+            joinButton.classList.add('disabled')
+        }
+        shareButton.setAttribute('onclick', `shareRoom('${this.id}')`)
+        return element
+    }
+
+    createTemplateElement() {
         const element = document.createElement('div')
         element.className = 'room'
         element.setAttribute('id', 'room' + this.id)
@@ -45,25 +72,13 @@ class Room {
                 <div class="room-join-button">
                     join <i class="fas fa-sign-in-alt"></i>
                 </div>        
-                <div class="room-share-button" onclick="shareRoom('${this.id}')">
+                <div class="room-share-button">
                     share <i class="fas fa-share-alt"></i>
                 </div>        
                 <div class="room-delete-button">
                     delete <i class="fas fa-trash"></i>
                 </div>        
             </div>`
-        const joinButton = element.querySelector('.room-join-button')
-        const deleteButton = element.querySelector('.room-delete-button')
-        if(window.userIP === this.ipOfCreator) {
-            deleteButton.setAttribute('onclick', `deleteRoom('${this.id}')`)
-        } else {
-            deleteButton.classList.add('disabled')
-        }
-        if(window.userCountry.toLowerCase() === this.country.toLowerCase()) {
-            joinButton.setAttribute('onclick', `joinRoom('${this.id}')`)
-        } else {
-            joinButton.classList.add('disabled')
-        }
         return element
     }
 
