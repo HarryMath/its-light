@@ -16,11 +16,11 @@ public class DataSourceConfig {
         URI jdbUri = new URI(System.getenv("JAWSDB_URL"));
         String username = jdbUri.getUserInfo().split(":")[0];
         String password = jdbUri.getUserInfo().split(":")[1];
-        String host = jdbUri.getHost();
+        String url = "jdbc:mysql://" + jdbUri.getHost() + ":" + jdbUri.getPort() + jdbUri.getPath();
 
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
-        dataSourceBuilder.url( host );
+        dataSourceBuilder.url( url );
         dataSourceBuilder.username( username );
         dataSourceBuilder.password( password );
 
