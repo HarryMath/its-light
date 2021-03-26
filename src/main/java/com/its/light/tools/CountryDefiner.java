@@ -12,11 +12,16 @@ import java.util.stream.Collectors;
 @Component
 public class CountryDefiner {
 
-    public String getCountry(String ipAddress) throws IOException {
-        String response = requestTo("https://api.ip2country.info/ip?" + ipAddress);
-        return response
-                .split("countryName\": \"")[1]
-                .split("\",")[0];
+    public String getCountry(String ipAddress) {
+        try {
+            String response = requestTo("https://api.ip2country.info/ip?" + ipAddress);
+            return response
+                    .split("countryName\": \"")[1]
+                    .split("\",")[0];
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
     public boolean isCountryExists(String country) throws IOException {

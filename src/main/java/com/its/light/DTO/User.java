@@ -1,4 +1,4 @@
-package com.its.light.models;
+package com.its.light.DTO;
 
 import lombok.Data;
 

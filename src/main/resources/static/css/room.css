@@ -1,0 +1,17 @@
+#lamp {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    width: 50px; height: 50px;
+    border-radius: 40%;
+    border: 2px solid #000;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+#lamp.on {
+    background: #ffa9b3;
+    box-shadow: 0 0 20px 5px #ca4555;
+    border-color: #e91e63;
+}

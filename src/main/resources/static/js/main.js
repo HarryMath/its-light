@@ -118,6 +118,7 @@ async function loadRooms() {
 		roomAdder.after(roomElement)
 		window.rooms.push(room)
 	})
+	hideLoader(document.body)
 }
 
 async function defineUser() {
@@ -137,18 +138,4 @@ function setPlaceholder(element, placeholder) {
 			element.parentElement.parentElement.remove()
 		}
 	});
-}
-
-function showLoader(element) {
-	const loaderElement = document.createElement('div')
-	loaderElement.className = 'loader-overlay'
-	element.appendChild(loaderElement)
-}
-
-function hideLoader(element) {
-	try {
-		element.querySelector('.loader-overlay').remove()
-	} catch (e) {
-		console.warn(e)
-	}
 }

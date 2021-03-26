@@ -32,3 +32,17 @@ function hideMessage() {
 	clearInterval(messageInterval)
 	msg_window.classList.remove('msg_visible')
 }
+
+function showLoader(element) {
+	const loaderElement = document.createElement('div')
+	loaderElement.className = 'loader-overlay'
+	element.prepend(loaderElement)
+}
+
+function hideLoader(element) {
+	try {
+		element.querySelector('.loader-overlay').remove()
+	} catch (e) {
+		console.warn(e)
+	}
+}

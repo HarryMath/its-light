@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Rooms</title>
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#fff">
+    <meta name="theme-color" content="#2b303b">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -12,8 +12,11 @@
     <link rel="stylesheet" href="/css/message.css">
 </head>
 <body>
-
+    <div class="loader-overlay"></div>
+    <div id="lamp"></div>
 </body>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
 <script src="/js/request.js"></script>
 <script src="/js/message.js"></script>
 <script src="/js/room.js"></script>
